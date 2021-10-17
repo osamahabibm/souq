@@ -1,0 +1,573 @@
+// Global Sit Start
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;600;700;900&display=swap");
+* {
+  font-family: "Cairo", sans-serif;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  list-style: none;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+}
+
+$green: #bac34e;
+$black: #222;
+$white: #fff;
+$ligth-color: #666;
+$ligth-bg: #f3f3f3;
+$border: 0.1rem solid rgba(0, 0, 0, 0.1);
+$box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+
+@mixin grid($val) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  gap: 1.5rem;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 3rem 9%;
+}
+
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.8rem 3rem;
+  background: $green;
+  color: $white;
+  font-size: 1.7rem;
+  cursor: pointer;
+
+  &:hover {
+    background: $black;
+  }
+}
+
+#menu-btn {
+  display: none;
+}
+// Global Sit End
+
+// Header section Start
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: $white;
+  box-shadow: $box-shadow;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 9%;
+
+  .logo {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: $black;
+    display: flex;
+
+    ion-icon {
+      color: $green;
+      padding-right: 0.5rem;
+      display: block;
+    }
+  }
+  .navbar {
+    a {
+      font-size: 1.7rem;
+      color: $ligth-color;
+      margin: 0 1rem;
+
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+  .icons {
+    display: flex;
+    div {
+      font-size: 2.5rem;
+      margin-left: 1.7rem;
+      cursor: pointer;
+      color: $ligth-color;
+
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+
+  .search-from {
+    position: absolute;
+    top: -115%;
+    right: 2rem;
+    width: 50rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    height: 5.5rem;
+    box-shadow: $box-shadow;
+    background: $white;
+
+    &.active {
+      top: 115%;
+    }
+
+    input {
+      height: 100%;
+      width: 100%;
+      padding: 0 1.1rem;
+      font-size: 1.6rem;
+      color: $black;
+      text-transform: none;
+      border-radius: 0.5rem;
+    }
+    label {
+      font-size: 2.5rem;
+      margin-right: 1.7rem;
+      cursor: pointer;
+      color: $ligth-color;
+
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+
+  .shopping-cart {
+    position: absolute;
+    top: 115%;
+    right: -105%;
+    background: $white;
+    border-radius: 0.5rem;
+    box-shadow: $box-shadow;
+    width: 35rem;
+    padding: 2rem;
+
+    &.active {
+      right: 2rem;
+      transition: 0.4s linear;
+    }
+
+    .box {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      width: 100%;
+
+      .fa-times {
+        position: absolute;
+        top: 50%;
+        right: 2rem;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        color: $ligth-color;
+        cursor: pointer;
+
+        &:hover {
+          color: $green;
+        }
+      }
+      img {
+        height: 10rem;
+      }
+      .content {
+        h3 {
+          font-size: 1.7rem;
+          padding-bottom: 0.5rem;
+          color: $black;
+        }
+
+        span {
+          font-size: 1.5rem;
+          color: $ligth-color;
+          &.multiply {
+            margin: 0 0.5rem;
+          }
+        }
+      }
+    }
+
+    .total {
+      color: $ligth-color;
+      text-align: center;
+      font-size: 2.2rem;
+
+      span {
+        color: $black;
+      }
+    }
+
+    .btn {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  .login-form {
+    position: absolute;
+    top: 115%;
+    right: -105%;
+    background: $white;
+    border-radius: 0.5rem;
+    box-shadow: $box-shadow;
+    max-width: 35rem;
+    padding: 2rem;
+    margin: 0;
+    width: 100%;
+
+    &.active {
+      right: 2rem;
+      transition: 0.4s linear;
+    }
+
+    h3 {
+      color: $black;
+      text-transform: uppercase;
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 0.7rem;
+    }
+
+    .box {
+      margin: 0.7rem 0;
+      border: $border;
+      padding: 10px 0;
+      font-size: 1.5rem;
+      color: $black;
+      text-transform: none;
+      width: 100%;
+      border-radius: 0.5rem;
+
+      &::placeholder {
+        text-align: center;
+      }
+    }
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.7rem 0;
+
+      label {
+        font-size: 1.5rem;
+        color: $ligth-color;
+        cursor: pointer;
+      }
+    }
+    .btn {
+      margin: 1rem 0;
+      width: 100%;
+      text-align: center;
+      border-radius: 0.5rem;
+    }
+    p {
+      color: $ligth-color;
+      padding-top: 0.7rem;
+      font-size: 1.4rem;
+    }
+    a {
+      color: $green;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+// Header section End
+
+// Swiper-Home-Page Start
+@keyframes fadeLeft {
+  100% {
+    transform: translateX(-5rem);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+.home {
+  padding-top: 14rem;
+  background: url(../image/home-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  .slides-container {
+    .slide {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      display: none;
+
+      &.active {
+        display: flex;
+      }
+
+      .content {
+        flex: 1 1 40rem;
+        animation: fadeLeft 0.4s linear 0.4s backwards;
+
+        span {
+          color: $ligth-color;
+          font-size: 2.5rem;
+        }
+
+        h3 {
+          font-size: 6rem;
+          color: $black;
+          padding: 0.5rem 0;
+        }
+      }
+
+      .image {
+        flex: 1 1 40rem;
+        margin: 3rem 0;
+
+        img {
+          width: 100%;
+          animation: fadeUp 0.4s linear;
+        }
+      }
+    }
+  }
+
+  #next-slide,
+  #prev-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    box-shadow: $box-shadow;
+    text-align: center;
+    background: $white;
+    font-size: 3rem;
+    color: $black;
+    cursor: pointer;
+    border-radius: 0.4rem;
+
+    &:hover {
+      background: $green;
+      color: $white;
+    }
+  }
+
+  #prev-slide {
+    left: 2rem;
+  }
+
+  #next-slide {
+    right: 2rem;
+  }
+}
+// Swiper-Home-Page End
+
+//  Banner-Section Start
+.banner-container {
+  @include grid(32rem);
+  .banner {
+    position: relative;
+    height: 25rem;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 2rem;
+      transform: translateY(-50%);
+      span {
+        color: $ligth-color;
+        font-size: 1.2rem;
+      }
+      h3 {
+        font-size: 2rem;
+        padding-top: 0.5rem;
+        color: $black;
+      }
+      .btn {
+        padding: 0.8rem 2.5rem;
+      }
+    }
+  }
+}
+//  Banner-Section End
+
+// Footer section Start //
+.footer {
+  background: $ligth-bg;
+
+  .box-container {
+    @include grid(25rem);
+
+    .box {
+      h3 {
+        font-size: 2.2rem;
+        color: $black;
+        padding: 1rem 0;
+      }
+
+      p {
+        font-size: 1.5rem;
+        color: $ligth-color;
+        padding: 0.5rem;
+      }
+
+      a {
+        font-size: 1.4rem;
+        color: $ligth-color;
+        padding: 1rem 0;
+        display: block;
+
+        &:hover {
+          color: $green;
+
+          i {
+            padding-right: 2rem;
+          }
+        }
+
+        i {
+          padding-right: 0.5rem;
+          color: $green;
+        }
+      }
+      form input[type="email"] {
+        width: 100%;
+        padding: 1rem 1.2rem;
+        font-size: 1.6rem;
+        color: $black;
+        border-radius: 0.5rem;
+        margin: 1rem 0;
+        text-transform: none;
+      }
+      .paymaent {
+        width: 100%;
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+.credit {
+  text-align: center;
+  background: $green;
+  color: $white;
+  font-size: 2rem;
+}
+// Footer section End //
+
+// media queries Start
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+
+  .header {
+    padding: 2rem;
+  }
+
+  section {
+    padding: 3rem 2rem;
+  }
+
+  .home #next-slide,
+  .home #prev-slide {
+    transform: translateY(0);
+    top: 88%;
+  }
+
+  .home #prev-slide {
+    left: auto;
+    right: 8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #menu-btn {
+    display: inline-block;
+  }
+  // responsiv header
+  .header {
+    .search-from {
+      width: 100%;
+      right: 0;
+      border-radius: 0;
+
+      &.active {
+        top: 99%;
+        border-top: $border;
+      }
+    }
+    .navbar {
+      position: absolute;
+      top: 99%;
+      left: 0;
+      right: 0;
+      background: $white;
+      border-top: $border;
+      border-bottom: $border;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+      &.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        transition: 0.4s linear;
+      }
+
+      a {
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background: $ligth-bg;
+        font-size: 2rem;
+        display: block;
+        border-radius: 0.5rem;
+      }
+    }
+    .shopping-cart {
+      width: 25rem;
+    }
+    .login-form {
+      width: 25rem;
+    }
+  }
+
+  // responsiv footer
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+}
+// media queries End
+
+// test
